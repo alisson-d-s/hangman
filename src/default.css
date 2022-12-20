@@ -1,8 +1,38 @@
-.RandomLetterContainer {}
+html, body {
+    margin: 0;
+    padding: 0;
+}
 
-.RandomWordContainer {
+.mainBody {
+    position: absolute;
+    top: 40px;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+}
+
+.hangman {
+    height: 100%;
+    width: 45%;
+    background-color: aqua;
+}
+
+.randomWordContainer {
     display: flex;
     gap: 5px;
+    background-color: blue;
+}
+
+.lettersContainer {
+    display: flex;
+    gap: 5px;
+    background-color: aquamarine;
+}
+
+.wrongWordContainer {
+    display: flex;
+    gap: 5px;
+    background-color: brown;
 }
 
 div[disabled] {
