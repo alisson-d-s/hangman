@@ -4,6 +4,11 @@ html, body {
     color: #FFFFFC;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 .mainBody {
     position: absolute;
     top: 0px;

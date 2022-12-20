@@ -3,7 +3,7 @@ import { LetterButton } from '../components/LetterButton'
 import { RandomLetterContainer } from '../components/RandomLetterContainer';
 import { RandomWord } from '../RandomWord';
 import { AllLetters } from "../AllLetters";
-import { FailedMessage } from '../components/FailedMessage';
+import { Message } from '../components/Message';
 import { Hangman } from '../components/Hangman';
 
 type RandomWordProps = {
@@ -166,7 +166,7 @@ export const HangmanPage = () => {
                 </div>
 
                 <div>
-                    <FailedMessage failed={randomWord.failed} ></FailedMessage>
+                    <Message failed={randomWord.failed} sucess={randomWord.finished} ></Message>
                 </div>
             </div>
         </div>

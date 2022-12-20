@@ -1,55 +1,36 @@
-import hangman_0 from "../assets/hangmanImages/hangman_0.svg";
-import hangman_1 from "../assets/hangmanImages/hangman_1.svg";
-import hangman_2 from "../assets/hangmanImages/hangman_2.svg";
-import hangman_3 from "../assets/hangmanImages/hangman_3.svg";
-import hangman_4 from "../assets/hangmanImages/hangman_4.svg";
-import hangman_5 from "../assets/hangmanImages/hangman_5.svg";
+import { hangman_0, hangman_1, hangman_2, hangman_3, hangman_4, hangman_5, hangman_6 } from "../assets/hangmanImages/index";
 
 type HangmanProps = {
     failCount: number
 };
 
+const GetImage = (failCount: number): string => {
+    switch (failCount) {
+        case 0:
+            return hangman_0;
+        case 1:
+            return hangman_1;
+        case 2:
+            return hangman_2;
+        case 3:
+            return hangman_3;
+        case 4:
+            return hangman_4;
+        case 5:
+            return hangman_5;
+        case 6:
+            return hangman_6;
+        default:
+            return hangman_0;
+    }
+};
+
 export const Hangman = ({ failCount }: HangmanProps) => {
-    if (failCount === 0) {
-        return (
-            <div>
-                <img src={hangman_0}></img>
-            </div>
-        );
-    }
-    if (failCount === 1) {
-        return (
-            <div>
-                <img src={hangman_1}></img>
-            </div>
-        );
-    }
-    if (failCount === 2) {
-        return (
-            <div>
-                <img src={hangman_2}></img>
-            </div>
-        );
-    }if (failCount === 3) {
-        return (
-            <div>
-                <img src={hangman_3}></img>
-            </div>
-        );
-    }
-    if (failCount === 4) {
-        return (
-            <div>
-                <img src={hangman_4}></img>
-            </div>
-        );
-    }
-    if (failCount === 5) {
-        return (
-            <div>
-                <img src={hangman_5}></img>
-            </div>
-        );
-    }
-    return <h1></h1>
+    const hangman = GetImage(failCount);
+
+    return (
+        <div>
+            <img src={hangman} ></img>
+        </div>
+    );
 };
