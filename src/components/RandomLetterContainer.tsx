@@ -1,11 +1,10 @@
 type RandomLetterProps = {
     letter: string;
-    find: boolean;
+    found: boolean;
 };
 
-export const RandomLetterContainer = ({letter, find}: RandomLetterProps) => {
-    if (find) {
-        return <div><h1>{letter}</h1></div>
-    }
-    return <div></div>
+export const RandomLetterContainer = ({letter, found}: RandomLetterProps) => {
+    return found 
+        ? (<div><h1>{letter}</h1></div>)
+        : (<div><h1>_</h1></div>)
 };
