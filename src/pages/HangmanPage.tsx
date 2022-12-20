@@ -4,6 +4,7 @@ import { RandomLetterContainer } from '../components/RandomLetterContainer';
 import { RandomWord } from '../RandomWord';
 import { AllLetters } from "../AllLetters";
 import { FailedMessage } from '../components/FailedMessage';
+import { Hangman } from '../components/Hangman';
 
 type RandomWordProps = {
     word: string;
@@ -56,7 +57,7 @@ export const HangmanPage = () => {
     const FailedCheck = () => {
         const failedLettersPicked = GetFailCount();
         console.log(failedLettersPicked);
-        if (failedLettersPicked >= 5) {
+        if (failedLettersPicked >= 6) {
             setRandomWord(old => { return { ...old, failed: true } });
         }
     };
@@ -126,7 +127,9 @@ export const HangmanPage = () => {
 
     return (
         <div className='mainBody'>
-            <div className='hangman'></div>
+            <div className='hangman'>
+                <Hangman failCount={GetFailCount()} ></Hangman>
+            </div>
 
             <div>
                 <div className='randomWordContainer' >

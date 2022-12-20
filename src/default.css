@@ -1,38 +1,37 @@
 html, body {
     margin: 0;
     padding: 0;
+    color: #FFFFFC;
 }
 
 .mainBody {
     position: absolute;
-    top: 40px;
-    bottom: 20px;
+    top: 0px;
+    bottom: 0px;
     width: 100%;
     display: flex;
+    background-color: #001011;
 }
 
 .hangman {
     height: 100%;
     width: 45%;
-    background-color: aqua;
 }
 
 .randomWordContainer {
     display: flex;
     gap: 5px;
-    background-color: blue;
+
 }
 
 .lettersContainer {
     display: flex;
     gap: 5px;
-    background-color: aquamarine;
 }
 
 .wrongWordContainer {
     display: flex;
     gap: 5px;
-    background-color: brown;
 }
 
 div[disabled] {
