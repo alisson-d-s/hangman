@@ -26,6 +26,7 @@ type LettersProps = {
     letter: string;
     alreadyPicked: boolean;
     wrongLetter: boolean;
+    row: number;
 }[];
 
 export const HangmanPage = () => {
@@ -45,10 +46,6 @@ export const HangmanPage = () => {
         ResetLetters();
         setRandomWord({ ...GenerateNewWord() });
     }, []);
-
-    useEffect(() => {
-        console.log(randomWord.word);
-    }, [randomWord]);
 
     const GetFailCount = () => {
         return letters.filter(x => x.wrongLetter === true).length;
@@ -141,18 +138,27 @@ export const HangmanPage = () => {
                 <div className='lettersContainer'
                     disabled={randomWord.finished || randomWord.failed}
                 >
-                    {letters.map(({ letter, alreadyPicked }) => (
-                        <LetterButton LetterClick={LetterClick} key={letter} alreadyPicked={alreadyPicked} letter={letter}></LetterButton>
-                    ))}
-                </div>
-
-                <div>
-                    <button onClick={() => {
-                        setRandomWord({ ...GenerateNewWord() });
-                        ResetLetters();
-                    }} >
-                        New Game
-                    </button>
+                    <div className="lettersFirstRow" >
+                        {
+                            letters.filter(x => x.row === 1).map(({ letter, alreadyPicked }) => (
+                                <LetterButton LetterClick={LetterClick} key={letter} alreadyPicked={alreadyPicked} letter={letter}></LetterButton>
+                            ))
+                        }
+                    </div>
+                    <div className="lettersSecondtRow" >
+                        {
+                            letters.filter(x => x.row === 2).map(({ letter, alreadyPicked }) => (
+                                <LetterButton LetterClick={LetterClick} key={letter} alreadyPicked={alreadyPicked} letter={letter}></LetterButton>
+                            ))
+                        }
+                    </div>
+                    <div className="lettersThirdRow" >
+                        {
+                            letters.filter(x => x.row === 3).map(({ letter, alreadyPicked }) => (
+                                <LetterButton LetterClick={LetterClick} key={letter} alreadyPicked={alreadyPicked} letter={letter}></LetterButton>
+                            ))
+                        }
+                    </div>
                 </div>
 
                 <div className='wrongWordContainer' >
@@ -167,6 +173,15 @@ export const HangmanPage = () => {
 
                 <div>
                     <Message failed={randomWord.failed} sucess={randomWord.finished} ></Message>
+                </div>
+
+                <div>
+                    <button onClick={() => {
+                        setRandomWord({ ...GenerateNewWord() });
+                        ResetLetters();
+                    }} >
+                        New Game
+                    </button>
                 </div>
             </div>
         </div>

@@ -30,8 +30,20 @@ img {
 }
 
 .lettersContainer {
-    display: flex;
+    display: grid;
     gap: 5px;
+}
+
+.lettersFirstRow {
+    
+}
+
+.lettersSecondtRow {
+    margin-left: 5px;
+}
+
+.lettersThirdRow {
+    margin-left: 10px;
 }
 
 .wrongWordContainer {
