@@ -1,9 +1,12 @@
 type LetterButtonProps = {
     letter: string;
+    alreadyPicked: boolean;
+    correctLetter?: boolean;
+    LetterClick: (letter: string) => void;
 };
 
-export const LetterButton = ({letter}: LetterButtonProps) => {
+export const LetterButton = ({letter, alreadyPicked, correctLetter, LetterClick}: LetterButtonProps) => {
     return (
-        <button>{letter}</button>
+        <button onClick={() => LetterClick(letter)} disabled={alreadyPicked} >{letter}</button>
     );
 };
